@@ -1,0 +1,23 @@
+from django.shortcuts import render
+from rest_framework import generics
+from mainApp.serializers import *
+from mainApp.models import *
+
+# Create your views here.
+#CRUD operations
+
+class ListToDo(generics.ListAPIView):  # Read
+    queryset = ToDo.objects.all()
+    serializer_class = ToDoSerializer
+
+class DetailToDo(generics.RetrieveUpdateAPIView):  # Update
+    queryset = ToDo.objects.all()
+    serializer_class = ToDoSerializer
+
+class CreateToDo(generics.CreateAPIView):  # Create
+    queryset = ToDo.objects.all()
+    serializer_class = ToDoSerializer
+
+class DeleteToDo(generics.DestroyAPIView):  # Delete
+    queryset = ToDo.objects.all()
+    serializer_class = ToDoSerializer
